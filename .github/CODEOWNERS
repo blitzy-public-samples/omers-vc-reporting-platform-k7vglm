@@ -1,0 +1,61 @@
+# for code in this repository. Code owners are automatically requested
+# for review when someone opens a pull request that modifies code they own.
+
+# Default owners for everything in the repo (unless a later match takes precedence)
+* @project-admin
+
+# Backend team owns the src/backend/ directory and its contents
+/src/backend/ @backend-team
+
+# Database team owns the src/database/ directory and its contents
+/src/database/ @database-team
+
+# DevOps team owns the infrastructure/ directory and its contents
+/infrastructure/ @devops-team
+
+# CI/CD team owns the .github/workflows/ directory and its contents
+/.github/workflows/ @ci-cd-team
+
+# API team owns the src/backend/api/ directory and its contents
+/src/backend/api/ @api-team
+
+# Services team owns the src/backend/services/ directory and its contents
+/src/backend/services/ @services-team
+
+# Data modeling team owns the src/backend/models/ and src/backend/schemas/ directories and their contents
+/src/backend/models/ @data-modeling-team
+/src/backend/schemas/ @data-modeling-team
+
+# QA team owns the src/backend/tests/ and src/database/tests/ directories and their contents
+/src/backend/tests/ @qa-team
+/src/database/tests/ @qa-team
+
+# Documentation team owns all README.md files and the LICENSE file
+README.md @documentation-team
+/**/README.md @documentation-team
+/LICENSE @documentation-team
+
+# Security team owns security-related files
+/src/backend/core/security.py @security-team
+/src/backend/utils/rate_limiter.py @security-team
+
+# Database migrations owned by both backend and database teams
+/src/backend/migrations/ @backend-team @database-team
+/src/database/migrations/ @database-team @backend-team
+
+# Configuration files owned by DevOps and respective teams
+/src/backend/config.py @backend-team @devops-team
+/src/database/config.py @database-team @devops-team
+/src/backend/requirements.txt @backend-team @devops-team
+/src/database/requirements.txt @database-team @devops-team
+
+# Dockerfile and .dockerignore owned by DevOps and Backend teams
+/src/backend/Dockerfile @devops-team @backend-team
+/src/backend/.dockerignore @devops-team @backend-team
+
+# GitHub-specific files owned by project admin and CI/CD team
+/.github/PULL_REQUEST_TEMPLATE.md @project-admin @ci-cd-team
+/.github/ISSUE_TEMPLATE/ @project-admin @ci-cd-team
+
+# .gitignore owned by project admin
+/.gitignore @project-admin
