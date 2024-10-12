@@ -1,0 +1,273 @@
+# Python-related files
+*.py[cod]  # Compiled Python files
+__pycache__/  # Python cache directory
+*.so  # C extensions
+*.egg  # Distributed packages
+*.egg-info/  # Package metadata
+dist/  # Distribution directory
+build/  # Build directory
+eggs/  # Deprecated egg format
+.eggs/  # Egg metadata directory
+lib/  # Library directory
+lib64/  # 64-bit library directory
+parts/  # Buildout-specific directory
+sdist/  # Source distribution directory
+var/  # Variable directory
+*.egg-info/  # Package metadata (duplicate, consider removing)
+.installed.cfg  # Buildout configuration file
+*.egg  # Distributed packages (duplicate, consider removing)
+pip-log.txt  # Pip log file
+pip-delete-this-directory.txt  # Pip cache directory marker
+
+# Virtual environment
+venv/  # Standard virtual environment directory
+env/  # Alternative virtual environment directory
+.env  # Environment variables file (duplicate, consider removing)
+
+# IDE-related files
+.vscode/  # Visual Studio Code settings
+.idea/  # PyCharm settings
+*.swp  # Vim swap files
+*.swo  # Vim swap files
+
+# OS-related files
+.DS_Store  # macOS folder attributes
+Thumbs.db  # Windows thumbnail cache
+
+# Azure-related files
+*.publishsettings  # Azure publish settings
+azure.err  # Azure error logs
+azure.cfg  # Azure configuration file
+
+# Logs
+*.log  # Log files
+
+# Database files
+*.sqlite3  # SQLite database files
+
+# Environment variables
+.env  # Environment variables file
+.env.*  # All environment variable files (e.g., .env.local, .env.production)
+
+# Docker-related files
+docker-compose.override.yml  # Docker Compose override file
+
+# Terraform-related files
+*.tfstate  # Terraform state files
+*.tfstate.*  # Terraform state backup files
+.terraform/  # Terraform directory
+*.tfvars  # Terraform variable files (except for environment-specific ones)
+!infrastructure/environments/*.tfvars  # Allow environment-specific tfvars files
+
+# Test coverage
+.coverage  # Coverage data file
+htmlcov/  # HTML coverage report directory
+
+# Alembic migration files
+versions/  # Alembic versions directory
+
+# Temporary files
+*.tmp  # Temporary files
+*.bak  # Backup files
+*.swp  # Vim swap files (duplicate, consider removing)
+*.swo  # Vim swap files (duplicate, consider removing)
+*~  # Backup files created by some editors
+
+# Compiled files
+*.com  # DOS/Windows executable
+*.class  # Java class files
+*.dll  # Dynamic-link library
+*.exe  # Windows executable
+*.o  # Object file
+*.so  # Shared library (duplicate, consider removing)
+
+# Additional files and directories specific to this project
+node_modules/  # Node.js modules (if using any JavaScript tools)
+*.pyc  # Compiled Python files (already covered by *.py[cod], but explicitly stated)
+.pytest_cache/  # pytest cache directory
+.mypy_cache/  # mypy cache directory
+.tox/  # tox automation tool directory
+.nox/  # nox automation tool directory
+
+# Jupyter Notebook
+.ipynb_checkpoints/  # Jupyter Notebook checkpoints
+
+# pyenv
+.python-version  # pyenv version file
+
+# pipenv
+Pipfile.lock  # pipenv lock file
+
+# poetry
+poetry.lock  # poetry lock file
+
+# Celery
+celerybeat-schedule  # Celery beat schedule file
+celerybeat.pid  # Celery beat PID file
+
+# SageMath parsed files
+*.sage.py  # SageMath parsed files
+
+# Environments
+.venv  # Another common virtual environment directory
+env.bak/  # Backup of the virtual environment
+venv.bak/  # Backup of the virtual environment
+
+# Spyder project settings
+.spyderproject  # Spyder project settings
+.spyproject  # Spyder project settings
+
+# Rope project settings
+.ropeproject  # Rope project settings
+
+# mkdocs documentation
+/site  # mkdocs build directory
+
+# mypy
+.mypy_cache/  # mypy cache directory
+.dmypy.json  # dmypy database
+dmypy.json  # dmypy database
+
+# Pyre type checker
+.pyre/  # Pyre type checker directory
+
+# pytype static type analyzer
+.pytype/  # pytype static type analyzer directory
+
+# Cython debug symbols
+cython_debug/  # Cython debug symbols directory
+
+# PyCharm
+.idea/  # PyCharm settings (duplicate, consider removing)
+*.iml  # PyCharm module file
+*.ipr  # PyCharm project file
+*.iws  # PyCharm workspace file
+
+# VS Code
+.vscode/  # VS Code settings (duplicate, consider removing)
+*.code-workspace  # VS Code workspace file
+
+# Sublime Text
+*.tmlanguage.cache  # Sublime Text language cache
+*.tmPreferences.cache  # Sublime Text preferences cache
+*.stTheme.cache  # Sublime Text theme cache
+*.sublime-workspace  # Sublime Text workspace file
+*.sublime-project  # Sublime Text project file
+
+# sftp configuration file
+sftp-config.json  # SFTP configuration file
+sftp-config-alt*.json  # Alternative SFTP configuration files
+
+# Package control specific files
+Package Control.last-run  # Package control last run file
+Package Control.ca-list  # Package control CA list
+Package Control.ca-bundle  # Package control CA bundle
+Package Control.system-ca-bundle  # Package control system CA bundle
+Package Control.cache/  # Package control cache directory
+Package Control.ca-certs/  # Package control CA certificates directory
+Package Control.merged-ca-bundle  # Package control merged CA bundle
+Package Control.user-ca-bundle  # Package control user CA bundle
+oscrypto-ca-bundle.crt  # oscrypto CA bundle
+bh_unicode_properties.cache  # unicode properties cache
+
+# Sublime-github package stores a github token in this file
+# https://packagecontrol.io/packages/sublime-github
+GitHub.sublime-settings  # GitHub settings for Sublime Text
+
+# Visual Studio
+.vs/  # Visual Studio directory
+*.rsuser  # Visual Studio user-specific files
+*.suo  # Visual Studio user-specific files
+*.user  # Visual Studio user-specific files
+*.userosscache  # Visual Studio user-specific files
+*.sln.docstates  # Visual Studio user-specific files
+
+# Backup files
+*.bak  # Backup files (duplicate, consider removing)
+*.gho  # Ghost file
+*.ori  # Original file
+*.orig  # Original file
+
+# GPG
+secring.*  # GPG secret keyring
+
+# Dropbox
+.dropbox  # Dropbox settings
+.dropbox.attr  # Dropbox extended attributes
+.dropbox.cache  # Dropbox cache
+
+# Vim
+[._]*.s[a-v][a-z]  # Vim swap files
+[._]*.sw[a-p]  # Vim swap files
+[._]s[a-rt-v][a-z]  # Vim swap files
+[._]ss[a-gi-z]  # Vim swap files
+[._]sw[a-p]  # Vim swap files
+
+# Diff
+*.patch  # Patch files
+*.diff  # Diff files
+
+# Vagrant
+.vagrant/  # Vagrant directory
+
+# Ansible
+*.retry  # Ansible retry files
+
+# JetBrains IDEs
+.idea/  # JetBrains IDE settings (duplicate, consider removing)
+*.iml  # JetBrains IDE module file (duplicate, consider removing)
+*.ipr  # JetBrains IDE project file (duplicate, consider removing)
+*.iws  # JetBrains IDE workspace file (duplicate, consider removing)
+.idea_modules/  # JetBrains IDE modules directory
+
+# Gradle
+.gradle/  # Gradle directory
+build/  # Gradle build directory (duplicate, consider removing)
+
+# Maven
+target/  # Maven target directory
+pom.xml.tag  # Maven POM file tag
+pom.xml.releaseBackup  # Maven POM file release backup
+pom.xml.versionsBackup  # Maven POM file versions backup
+pom.xml.next  # Maven POM file next
+release.properties  # Maven release properties
+dependency-reduced-pom.xml  # Maven dependency reduced POM
+buildNumber.properties  # Maven build number properties
+.mvn/timing.properties  # Maven timing properties
+.mvn/wrapper/maven-wrapper.jar  # Maven wrapper JAR
+
+# Kubernetes
+*.kubeconfig  # Kubernetes configuration file
+
+# Helm
+charts/  # Helm charts directory
+
+# Serverless
+.serverless/  # Serverless directory
+
+# Pulumi
+Pulumi.*.yaml  # Pulumi configuration files
+
+# Terraform
+.terraform.lock.hcl  # Terraform lock file
+
+# AWS
+.aws/  # AWS configuration directory
+
+# GCP
+.gcloud/  # Google Cloud configuration directory
+
+# Azure
+.azure/  # Azure configuration directory
+
+# Heroku
+.heroku/  # Heroku configuration directory
+
+# Vercel
+.vercel  # Vercel configuration directory
+
+# Netlify
+.netlify/  # Netlify configuration directory
+
+# Firebase
+.firebase/  # Firebase configuration directory
