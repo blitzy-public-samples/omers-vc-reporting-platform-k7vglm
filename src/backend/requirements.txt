@@ -1,0 +1,74 @@
+fastapi==0.95.2
+uvicorn[standard]==0.22.0
+
+# Database
+sqlalchemy==2.0.15
+alembic==1.11.1
+psycopg2-binary==2.9.6
+
+# Data Validation and Serialization
+pydantic==1.10.8
+email-validator==2.0.0.post2
+
+# Authentication and Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# HTTP Client
+requests==2.31.0
+
+# Azure Integration
+azure-storage-blob==12.16.0
+azure-identity==1.13.0
+
+# Testing
+pytest==7.3.1
+pytest-cov==4.1.0
+
+# Code Quality and Formatting
+black==23.3.0
+flake8==6.0.0
+isort==5.12.0
+
+# Logging
+loguru==0.7.0
+
+# Performance and Caching
+redis==4.5.5
+
+# API Documentation
+swagger-ui-bundle==0.0.9
+
+# Monitoring and Metrics
+prometheus-client==0.17.0
+
+# Async Support
+aiohttp==3.8.4
+
+# Production Server
+gunicorn==20.1.0
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# Date and Time Handling
+pytz==2023.3
+
+# Dependency Injection
+dependency-injector==4.41.0
+
+# Rate Limiting
+limits==3.5.0
+
+# Serialization
+msgpack==1.0.5
+
+# Compression
+python-snappy==0.6.1
+
+# Task Queue (if needed)
+# celery==5.3.1
+
+# Additional Security
+itsdangerous==2.1.2
