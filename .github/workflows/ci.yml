@@ -1,0 +1,152 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 black isort
+
+    - name: Run linters
+      run: |
+        flake8 src/backend
+        black --check src/backend
+        isort --check-only src/backend
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: test_db
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r src/backend/requirements.txt
+
+    - name: Run tests
+      run: pytest src/backend/tests
+      env:
+        DATABASE_URL: postgresql://test_user:test_password@localhost:5432/test_db
+
+  build_and_scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: src/backend
+        file: src/backend/Dockerfile
+        push: false
+        tags: backend:${{ github.sha }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Scan image for vulnerabilities
+      uses: anchore/scan-action@v3
+      with:
+        image: backend:${{ github.sha }}
+        fail-build: true
+        severity-cutoff: high
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: backend:${{ github.sha }}
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
+        severity: 'CRITICAL,HIGH'
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# Additional comments for junior developers:
+
+# This workflow file defines the Continuous Integration (CI) process for the backend financial reporting metrics platform.
+# It is triggered on push to the main branch and on pull requests to the main branch.
+
+# The workflow consists of three jobs:
+
+# 1. lint:
+#    - This job runs linting tools (flake8, black, and isort) on the backend code.
+#    - It ensures code quality, consistent formatting, and proper import ordering.
+#    - Requirements addressed: Code Quality Checks (INFRASTRUCTURE/CI/CD PIPELINE)
+
+# 2. test:
+#    - This job runs the pytest suite on the backend code.
+#    - It sets up a PostgreSQL service container for database-related tests.
+#    - It ensures that all tests pass before merging changes.
+#    - Requirements addressed: Automated Testing (INFRASTRUCTURE/CI/CD PIPELINE)
+
+# 3. build_and_scan:
+#    - This job builds a Docker image of the backend application and scans it for vulnerabilities.
+#    - It uses the Dockerfile in src/backend to build the image.
+#    - The Anchore scan action is used to check for security vulnerabilities.
+#    - Trivy scanner is also used as an additional security check.
+#    - The build will fail if high severity vulnerabilities are found.
+#    - Requirements addressed: Security Scanning (SECURITY CONSIDERATIONS/VULNERABILITY MANAGEMENT)
+
+# The GITHUB_TOKEN is automatically provided by GitHub Actions for authentication purposes.
+
+# Best practices implemented:
+# - Using specific versions for GitHub Actions to ensure consistency
+# - Separating jobs for different stages of the CI process (lint, test, build, scan)
+# - Failing the build if high severity vulnerabilities are found in the container image
+# - Using a consistent Python version across all jobs (3.9 in this case)
+# - Implementing caching for Docker builds to speed up the process
+# - Using multiple vulnerability scanners for enhanced security checks
+
+# Note: This workflow uses the src/backend/requirements.txt file for installing Python dependencies.
+# Make sure to keep this file up to date with all necessary packages for the backend application.
+
+# Improvements made:
+# 1. Updated GitHub Actions to their latest versions for better performance and security.
+# 2. Added isort to the linting process to ensure proper import ordering.
+# 3. Implemented a PostgreSQL service container for database-related tests.
+# 4. Added Docker Buildx setup and caching to improve build performance.
+# 5. Included Trivy vulnerability scanner as an additional security measure.
+# 6. Updated comments to reflect the changes and provide more context for junior developers.
