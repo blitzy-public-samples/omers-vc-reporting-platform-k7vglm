@@ -1,0 +1,87 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.Python
+env
+venv
+
+# Pip logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# C extensions
+*.so
+
+# Test and coverage files
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis
+.pytest_cache
+tests/
+
+# Development and IDE files
+.git
+.gitignore
+.vscode
+*.swp
+*.swo
+*.swn
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Documentation
+docs/
+*.md
+LICENSE
+
+# Docker-related files
+Dockerfile
+.dockerignore
+
+# Environment and configuration files
+.env
+.env.*
+*.log
+alembic.ini
+
+# Dependency management
+requirements-dev.txt
+
+# Build and distribution files
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Project-specific files and directories
+migrations/
+scripts/
+
+# Unnecessary files for the Docker image
+README.md
+.github/
+infrastructure/
+
+# Database files
+*.db
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
